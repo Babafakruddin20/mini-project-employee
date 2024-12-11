@@ -1,0 +1,86 @@
+<h1>createemployee works!</h1>
+
+
+<form [formGroup]="employeeform">
+    <label for="">name:</label>
+    <input type="text" formControlName="name">
+    <br>
+    <label for="">company:</label>
+    <input type="text" formControlName="company">
+    <br>
+    <label for="">role:</label>
+    <input type="text" formControlName="role">
+    <br>
+    <label for="">package:</label>
+    <input type="number" formControlName="package" [ngStyle]="{'color':employeeform.get('package')?.value<900000?'red':'green'}">
+    <br>
+    <label for="">email:</label>
+    <input type="email" formControlName="email">
+    <br>
+    <label for="">dob:</label>
+    <input type="date" formControlName="dob">
+    <br>
+    <div formGroupName="address">
+        <label for="">address:</label><br>
+        <label for="">addressLine:</label>
+        <input type="text" formControlName="addressLine">
+        <br>
+        <label for="">city:</label>
+        <input type="text" formControlName="city">
+        <br>
+        <label for="">state:</label>
+        <input type="text" formControlName="state">
+        <br>
+        <label for="">pincode:</label>
+        <input type="text" formControlName="pincode">
+        <br>
+    </div>
+    <label for="">hikes:</label><br>
+    <!-- form array 3rd step  -->
+    <button (click)="addhikes()">add hikes</button>
+    <br>
+
+    <!-- form array 4(fourth) step starts-->
+    <div formArrayName="hikes">
+        <div *ngFor="let employee of hikesFormArray.controls; let i=index">
+            <div formGroupName="{{i}}">
+
+                <h3>hikes{{i+1}}</h3>
+
+                <label for="">year:</label>
+                <input type="number" formControlName="year">
+                <br>
+                <label for="">percentage:</label>
+                <input type="number" formControlName="percentage">
+                <br>
+                <!-- form array 5th step -->
+                <button (click)="delete(i)">delete</button>
+            </div>
+        </div>
+    </div>
+    <!-- form array group 4th  step ends -->
+    <br>
+    <label for="">workMode:</label><br>
+
+    <input type="radio" name="abc" formControlName="type" value="work from office">
+    <label for="">work from office:</label>
+    <input type="radio" name="abc" formControlName="type" value="remote">
+    <label for="">remote:</label>
+
+    <br>
+    <div *ngIf="employeeform.get('type')?.value=='work from office'">
+        <label for="">travel fee:</label>
+        <input type="number" formControlName="travel fee"><br>
+    </div>
+
+    <div *ngIf="employeeform.get('type')?.value=='remote'">
+        <label for="">wifi bil amount:</label>
+        <input type="number" formControlName="wifi bill amount"><br>
+    </div>
+
+
+
+
+    <button (click)="submit()">submit</button>
+
+</form>

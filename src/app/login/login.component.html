@@ -1,0 +1,25 @@
+<div class="parent">
+    <div class="child">
+        <h1>mini project</h1>
+        <hr>
+        <form [formGroup]="loginForm">
+
+            <label for="">email</label>
+            <input type="text" formControlName="email">
+            <br>
+
+            <label for="">password</label>
+            <input type="password" formControlName="password">
+            <br>
+
+            <button (click)="login()">login</button>
+            <br>
+            <p>forgot:password? </p>
+        </form>
+
+
+    </div>
+
+
+
+</div>

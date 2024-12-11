@@ -1,0 +1,20 @@
+<h1>allemployees-details works!</h1>
+
+<h3>name:{{employee.name}}</h3>
+<h3>company:{{employee.company}}</h3>
+<h3>role:{{employee.role}}</h3>
+<h3>package:{{employee.package}}</h3>
+<h3>email:{{employee.email}}</h3>
+<h3>dob:{{employee.dob|date:'yyyy-mm-dd'}}</h3>
+<h3>address:
+    <br>addressLine:{{employee.address.addressLine}}
+    <br>city:{{employee.address.city}}
+    <br>state:{{employee.address.state}}
+    <br>pincode:{{employee.address.pincode}}
+</h3>
+<h3 *ngFor="let hike of employee.hikes">hikes:
+    <br>year:{{hike.year}},
+    percentage:{{hike.percentage}}
+</h3>
+<h3>workMode:{{employee.workMode}}</h3>
+

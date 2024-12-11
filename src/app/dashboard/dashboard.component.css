@@ -1,0 +1,46 @@
+/* General Layout */
+.parent {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left Section */
+.left {
+    width: 20%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.left h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.left h2 {
+    font-size: 18px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.left button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.left button:hover {
+    background-color: #0056b3;
+}
+
+/* Right Section */
+.right {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: aqua;
+    overflow: auto;
+}

@@ -1,0 +1,77 @@
+<input type="text" placeholder="search employees" [(ngModel)]="term" (keyup)="search()">
+
+<label for="">column</label>
+<select [(ngModel)]="column">
+    <option>name</option>
+    <option>company</option>
+    <option>role</option>
+    <option>package</option>
+    <option>dob</option>
+    <option>email</option>
+    <option>workMode</option>
+</select>
+
+<label for="">order</label>
+<select [(ngModel)]="order">
+    <option value="asc">ascending</option>
+    <option value="desc">descending</option>
+</select>
+<button (click)="sort()">sort</button>
+
+<label for="">page</label>
+<select [(ngModel)]="page" (change)="pagination()">
+    <option >1</option>
+    <option >2</option>
+    <option >3</option>
+    <option >4</option>
+    <option >5</option>
+    <option >6</option>
+    <option >7</option>
+    <option >8</option>
+    <option >9</option>
+    <option >10</option>
+</select>
+
+
+<table border="3">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>company</th>
+            <th>role</th>
+            <th>package</th>
+            <th>email</th>
+            <th>dob</th>
+            <th>address</th>
+            <th>workMode</th>
+            <th>action</th>
+        </tr>
+
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let employee of employees">
+            <td>{{employee.id}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.company}}</td>
+            <td>{{employee.role}}</td>
+            <td [ngStyle]="{'color':employee.package<900000?'red':'green'}">{{employee.package}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.dob|date:'yyyy-mm-dd'}}</td>
+            <td>{{employee.address?.addressLine}},
+                {{employee.address?.city}},
+                {{employee.address?.state}},
+                {{employee.address?.pincode}},
+            </td>
+            <td>{{employee.workMode}}</td>
+            <td>
+               <button routerLink="../allemployees-details/{{employee.id}}">view</button> 
+                <button (click)="delete(employee.id)">delete</button>
+            </td>
+
+
+
+        </tr>
+    </tbody>
+</table>
